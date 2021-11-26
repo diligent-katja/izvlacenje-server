@@ -4,13 +4,13 @@ import cors from "cors";
 import {connectDB} from "./config/db.js";
 import usersRoute from './routes/api/users.js'
 
-
 connectDB();
 
 const app = express();
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(express.static("public"));
 
 app.use('/api/users', usersRoute);
 
