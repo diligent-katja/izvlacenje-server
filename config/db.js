@@ -10,6 +10,5 @@ if (process.env.NODE_ENV !== 'production') {
 
 export const connectDB = () => {
   console.log("dbUrl :: ", dbUrl)
-  dbUrl = 'mongodb://localhost:27017/izvlacenje'
   mongoose.connect(dbUrl).then(() => console.log('Database connected'));
 };

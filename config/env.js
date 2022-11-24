@@ -1,5 +1,4 @@
-import dotenv from 'dotenv';
-
+import dotenv from 'dotenv'
 // Load values from .env file
 dotenv.config();
 
