@@ -1,26 +1,10 @@
 import mongoose from "mongoose";
+import {UserTypeOfSchema} from "./UserType.js";
 
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
-  {
-    id: {
-      type: Number,
-      required: true,
-    },
-    name: {
-      type: String,
-    },
-    cantBuy: {
-      type: Number,
-    },
-    isBuying: {
-      type: Number,
-    },
-    selectedBy: {
-      type: Number,
-    }
-  }
+  UserTypeOfSchema
 );
 
 const User = mongoose.model('User', UserSchema);
