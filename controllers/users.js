@@ -91,15 +91,22 @@ export const updateUser = asyncHandler(async (req, res, next) => {
   if (!user) return res.status(404).json({msg: 'Can not find user!'});
 
   if (cantBuy) {
-    const alreadySelected = await User.findOne({cantBuy: cantBuy});
-    if (alreadySelected && alreadySelected !== user.user_id)
+    const cantBySelected = await User.findOne({cantBuy: cantBuy});
+    if (cantBySelected && cantBySelected !== user.user_id)
       return res.status(404).json({sucess: false, msg: 'Already selected by someone!'});
   }
   if (user.cantBuy && cantBuy === "")
     user.cantBuy = ""
+  else user.cantBuy = cantBuy ? cantBuy : user.cantBuy;
+
+  if (user.isBuying) {
+    const alreadySelected = await User.findOne({isBuying: selectedBy});
+    if (alreadySelected)
+      return res.status(404).json({sucess: false, msg: 'Already selected by someone!'});
+  }
 
   user.name = name ? name : user.name;
-  user.cantBuy = cantBuy ? cantBuy : user.cantBuy;
+
   user.isBuying = isBuying ? isBuying : user.isBuying;
   user.selectedBy = selectedBy ? selectedBy : user.selectedBy
 
