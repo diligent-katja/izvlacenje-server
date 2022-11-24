@@ -9,7 +9,7 @@ connectDB();
 
 const app = express();
 app.use(cors({
-  origin: 'https://izvlacenje-2022.herokuapp.com'
+  origin: '*'
 }));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
