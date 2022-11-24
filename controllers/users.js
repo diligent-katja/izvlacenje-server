@@ -112,5 +112,5 @@ export const updateUser = asyncHandler(async (req, res, next) => {
 
   await user.save();
 
-  res.status(200).json(user);
+  res.status(200).json({success: true});
 });
