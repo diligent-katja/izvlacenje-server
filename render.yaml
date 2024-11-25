@@ -1,0 +1,11 @@
+# Exported from Render on 2024-11-25T10:39:48Z
+services:
+- type: web
+  name: izvlacenje-2022
+  runtime: docker
+  repo: https://github.com/diligent-katja/izvlacenje-server
+  plan: free
+  region: frankfurt
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
+version: "1"
